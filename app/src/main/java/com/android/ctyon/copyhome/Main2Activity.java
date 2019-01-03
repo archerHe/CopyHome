@@ -42,9 +42,9 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        mMainViewPager = (MainViewPager) findViewById(R.id.viewpager);
-        mActivityClassNameList = new LinkedList<AppClassName>();
-        mViewArrayList = new ArrayList<View>();
+        mMainViewPager = findViewById(R.id.viewpager);
+        mActivityClassNameList = new LinkedList<>();
+        mViewArrayList = new ArrayList<>();
         initActivityClassNameList();
         initTitleList();
         LayoutInflater layoutInflater = getLayoutInflater();
@@ -155,9 +155,6 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         Log.d(TAG, "keycode: " + keyCode);
 
-        Calendar c = Calendar.getInstance();
-        int year = c.get(Calendar.YEAR);
-
         switch (keyCode){
             case KeyEvent.KEYCODE_ENTER:
                 startActivityFromPosition(mCurrentItem);
@@ -176,7 +173,7 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
 
     private void initActivityClassNameList(){
         mActivityClassNameList.add(new AppClassName("contact", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui.activity.contacts.ContactMainActivity"));
-        mActivityClassNameList.add(new AppClassName("call", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui.activity.dialer.CallMainActivity"));
+        mActivityClassNameList.add(new AppClassName("call", "com.ctyon.ctyonlauncher", " "));
         mActivityClassNameList.add(new AppClassName("sms", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui.activity.message.MessageMainActivity"));
         mActivityClassNameList.add(new AppClassName("media", "com.android.ctyon.copyhome", "com.android.ctyon.copyhome.ui.MediaActivity"));
         mActivityClassNameList.add(new AppClassName("tools", "com.android.ctyon.copyhome", "com.android.ctyon.copyhome.ui.ToolsActivity"));

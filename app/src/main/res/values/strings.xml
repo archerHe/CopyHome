@@ -14,4 +14,7 @@
     <string name="wechat">微信</string>
     <string name="yzf">翼支付</string>
     <string name="others">其他应用</string>
+    <string name="main_menu">主菜单</string>
+    <string name="main_contact">联系人</string>
+    <string name="no_sim_card_notice">请插入sim卡</string>
 </resources>
