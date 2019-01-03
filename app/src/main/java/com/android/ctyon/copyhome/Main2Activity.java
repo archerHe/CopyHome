@@ -6,6 +6,7 @@ import com.android.ctyon.copyhome.ui.MainViewPager;
 
 import android.content.ComponentName;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.PagerAdapter;
@@ -21,6 +22,8 @@ import android.widget.TextView;
 
 import com.android.ctyon.copyhome.adapter.MainPagerAdapter;
 import com.android.ctyon.copyhome.ui.MainViewPager;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -194,6 +197,12 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
         titleList.add("微信");
         titleList.add("翼支付");
         titleList.add("其他应用");
+
+        View v = (View)findViewById(R.id.main2_bottom_layout);
+        TextView tvOK = v.findViewById(R.id.ok_tv);
+        TextView tvBack = v.findViewById(R.id.back_tv);
+        tvOK.setTextColor(Color.rgb(255, 255, 255));
+        tvBack.setTextColor(Color.rgb(255, 255, 255));
     }
     private void startActivityFromPosition(int p){
 

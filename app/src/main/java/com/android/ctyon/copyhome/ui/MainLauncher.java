@@ -58,8 +58,8 @@ public class MainLauncher extends AppCompatActivity {
         TextView tv_contect = v.findViewById(R.id.back_tv);
         TextView tv_menu = v.findViewById(R.id.ok_tv);
         tv_contect.setText(R.string.main_contact);
-        //tv_contect.setTextColor(Color.rgb(255, 255, 255));
-        //tv_menu.setTextColor(Color.rgb(255, 255, 255));
+        tv_contect.setTextColor(Color.rgb(255, 255, 255));
+        tv_menu.setTextColor(Color.rgb(255, 255, 255));
         tv_menu.setText(R.string.main_menu);
     }
 
