@@ -44,7 +44,7 @@ public class ListviewAdapter extends BaseAdapter {
         convertView = LayoutInflater.from(mContext).inflate(R.layout.listview_item_layout, parent, false);
         TextView tv_number = (TextView) convertView.findViewById(R.id.item_num);
         TextView tv_title = (TextView) convertView.findViewById(R.id.item_title);
-        tv_number.setText(String.valueOf(position));
+        tv_number.setText(String.valueOf(position + 1));
         tv_title.setText(mData.get(position).getName());
 
         return convertView;

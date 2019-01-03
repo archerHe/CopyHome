@@ -23,6 +23,7 @@ import com.android.ctyon.copyhome.adapter.MainPagerAdapter;
 import com.android.ctyon.copyhome.ui.MainViewPager;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.LinkedList;
 
 public class Main2Activity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
@@ -73,18 +74,18 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
                 super.handleMessage(msg);
             }
         };
-        mHandler.postDelayed(mRunnable, 3000);
-
+        //mHandler.postDelayed(mRunnable, 3000);
+    /*
         mMainViewPager.postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent intent = new Intent();
-                ComponentName componentName = new ComponentName("com.android.ctyon.copyhome", "com.android.ctyon.copyhome.ui.MediaActivity");
+                ComponentName componentName = new ComponentName("com.android.ctyon.copyhome", "com.android.ctyon.copyhome.ui.OtherAppsActivity");
                 intent.setComponent(componentName);
                 startActivity(intent);
             }
         }, 100);
-
+    */
 
     }
 
@@ -153,6 +154,10 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         Log.d(TAG, "keycode: " + keyCode);
+
+        Calendar c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR);
+
         switch (keyCode){
             case KeyEvent.KEYCODE_ENTER:
                 startActivityFromPosition(mCurrentItem);
@@ -170,7 +175,7 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
     }
 
     private void initActivityClassNameList(){
-        mActivityClassNameList.add(new AppClassName("contact", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui.activity.MainActivity"));
+        mActivityClassNameList.add(new AppClassName("contact", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui.activity.contacts.ContactMainActivity"));
         mActivityClassNameList.add(new AppClassName("call", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui.activity.dialer.CallMainActivity"));
         mActivityClassNameList.add(new AppClassName("sms", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui.activity.message.MessageMainActivity"));
         mActivityClassNameList.add(new AppClassName("media", "com.android.ctyon.copyhome", "com.android.ctyon.copyhome.ui.MediaActivity"));
@@ -178,7 +183,7 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
         mActivityClassNameList.add(new AppClassName("settings", "com.android.settings", "com.android.settings.Settings"));
         mActivityClassNameList.add(new AppClassName("wechat", "com.tencent.mm", "com.tencent.mm.ui.LauncherUI"));
         mActivityClassNameList.add(new AppClassName("yzf", "com.chinatelecom.bestpayclient", "com.chinatelecom.bestpayclient.ui.activity.GuideActivity"));
-        mActivityClassNameList.add(new AppClassName("settings", "com.android.settings", "com.android.settings.Settings"));
+        mActivityClassNameList.add(new AppClassName("others", "com.android.ctyon.copyhome", "com.android.ctyon.copyhome.ui.OtherAppsActivity"));
     }
 
     private void initTitleList(){
