@@ -176,7 +176,7 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
 
     private void initActivityClassNameList(){
         mActivityClassNameList.add(new AppClassName("contact", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui.activity.contacts.ContactMainActivity"));
-        mActivityClassNameList.add(new AppClassName("call", "com.ctyon.ctyonlauncher", " "));
+        mActivityClassNameList.add(new AppClassName("call", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui.activity.dialer.CallMainActivity"));
         mActivityClassNameList.add(new AppClassName("sms", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui.activity.message.MessageMainActivity"));
         mActivityClassNameList.add(new AppClassName("media", "com.android.ctyon.copyhome", "com.android.ctyon.copyhome.ui.MediaActivity"));
         mActivityClassNameList.add(new AppClassName("tools", "com.android.ctyon.copyhome", "com.android.ctyon.copyhome.ui.ToolsActivity"));
