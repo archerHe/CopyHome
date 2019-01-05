@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
+import android.speech.tts.TextToSpeech;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -40,6 +41,7 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
     private TextView                 tv_title;
     private LinkedList<AppClassName> mActivityClassNameList;
     private int                      mCurrentItem;
+    private TextToSpeech mTextToSpeech;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +79,8 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
                 super.handleMessage(msg);
             }
         };
+        mTextToSpeech = MyApplication.getInstance().mTextToSpeech;
+
         //mHandler.postDelayed(mRunnable, 3000);
     /*
         mMainViewPager.postDelayed(new Runnable() {
@@ -132,7 +136,8 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
                 }else if (mCurrentItem == mViewArrayList.size() - 1){
                     mMainViewPager.setCurrentItem(1);
                 }
-                Log.d(TAG, "SCROLL_STATE_IDLE: i " + mMainViewPager.getCurrentItem());
+               // mTextToSpeech.speak(titleList.get(1), TextToSpeech.QUEUE_ADD, null);
+                //Log.d(TAG, "SCROLL_STATE_IDLE: i " + mMainViewPager.getCurrentItem());
                 break;
             case ViewPager.SCROLL_STATE_DRAGGING:
                 if(mCurrentItem == 0){
@@ -173,6 +178,8 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
 
         return super.onTouchEvent(event);
     }
+
+
 
     private void initActivityClassNameList(){
         mActivityClassNameList.add(new AppClassName("contact", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui.activity.contacts.ContactMainActivity"));

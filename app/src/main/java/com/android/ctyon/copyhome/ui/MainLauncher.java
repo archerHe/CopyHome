@@ -3,6 +3,7 @@ package com.android.ctyon.copyhome.ui;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.graphics.Color;
+import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.TextClock;
 import android.widget.TextView;
 
+import com.android.ctyon.copyhome.MyApplication;
 import com.android.ctyon.copyhome.R;
 import com.android.ctyon.copyhome.utils.LunarSolarConverter;
 import com.android.ctyon.copyhome.utils.Lunar;
