@@ -17,4 +17,23 @@
     <string name="main_menu">主菜单</string>
     <string name="main_contact">联系人</string>
     <string name="no_sim_card_notice">请插入sim卡</string>
+    <string name="up_key">UP key</string>
+    <string name="down_key">Down Key</string>
+    <string name="left_key">Left Key</string>
+    <string name="right_key">Right Key</string>
+    <string name="browser">Browser</string>
+    <string name="clock">Clock</string>
+    <string name="gallery">Gallery</string>
+    <string name="music">Browser</string>
+    <string name="camera">Browser</string>
+    <string name="services">Browser</string>
+    <string name="calendar">Browser</string>
+    <string name="fm">Browser</string>
+    <string name="sos">Browser</string>
+    <string name="recorder">Browser</string>
+    <string name="explorer">Browser</string>
+    <string name="calc">Browser</string>
+    <string name="quick_start_select_title">QuickStart select</string>
+
+
 </resources>

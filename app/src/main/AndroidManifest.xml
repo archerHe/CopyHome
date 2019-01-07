@@ -30,7 +30,8 @@
         <activity
             android:name=".ui.OtherAppsActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".ui.MainLauncher"
+        <activity
+            android:name=".ui.MainLauncher"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,6 +39,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.QuickStartActivity" />
+        <activity android:name=".ui.AppListActivity"></activity>
     </application>
 
 </manifest>

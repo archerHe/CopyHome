@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="applist_package_name">
+        <item>org.codeaurora.snapcam</item>
+        <item>com.android.gallery3d</item>
+        <item>com.android.music</item>
+        <item>com.android.fmradio</item>
+        <item>com.android.soundrecorder</item>
+        <item>com.yarin.android.FileManager</item>
+    </string-array>
+    <string-array name="applist_class_name">
+        <item>com.android.camera.CameraLauncher</item>
+        <item>com.android.gallery3d.app.GalleryActivity</item>
+        <item>com.android.music.MusicBrowserActivity</item>
+        <item>com.android.fmradio.FmMainActivity</item>
+        <item>com.android.soundrecorder.SoundRecorder</item>
+        <item>com.ctyon.FileManager.FirstAct</item>
+
+    </string-array>
+    <string-array name="quick_start_pref_keys">
+        <item>preference_up</item>
+        <item>preference_down</item>
+        <item>preference_left</item>
+        <item>preference_right</item>
+    </string-array>
+
+
+</resources>

@@ -39,8 +39,6 @@ public class MyApplication extends Application {
                         }else{
                             Toast.makeText(app, "support china", Toast.LENGTH_SHORT).show();
                             Log.d(TAG, "support china");
-                            //mTextToSpeech.speak("天元对讲", TextToSpeech.QUEUE_ADD, null);
-                            //mTextToSpeech.speak("hello hello", TextToSpeech.QUEUE_ADD, null);
 
                         }
                     }
@@ -49,4 +47,6 @@ public class MyApplication extends Application {
         }
 
     }
+
+
 }

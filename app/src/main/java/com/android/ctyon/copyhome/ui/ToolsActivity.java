@@ -39,13 +39,22 @@ public class ToolsActivity extends AppCompatActivity {
 
         mContext = ToolsActivity.this;
         initAdapterData();
-        mListView = (ListView) findViewById(R.id.tools_list_view);
+        mListView = findViewById(R.id.tools_list_view);
         mListviewAdapter = new ListviewAdapter((LinkedList<AppClassName>) mData, mContext);
         mListView.setAdapter(mListviewAdapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
+                    case 0:
+                    Intent intent = new Intent("com.android.settings.SOS_SETTINGS");
+                    intent.addCategory("android.intent.category.DEFAULT");
+                    startActivity(intent);
+
+                        break;
+                    case 1:
+                        startApp(1);
+                        break;
                     case 4:
                     startApp(4);
                         break;
@@ -61,9 +70,9 @@ public class ToolsActivity extends AppCompatActivity {
     }
 
     private void initAdapterData() {
-        mData = new LinkedList<AppClassName>();
+        mData = new LinkedList<>();
         mData.add(new AppClassName("sos", "packagename", "classname"));
-        mData.add(new AppClassName("导航键启动设置", "packagename", "classname"));
+        mData.add(new AppClassName("导航键启动设置", "com.android.ctyon.copyhome", "com.android.ctyon.copyhome.ui.QuickStartActivity"));
         mData.add(new AppClassName("亲情号码", "packagename", "classname"));
         mData.add(new AppClassName("语音助手", "packagename", "classname"));
         mData.add(new AppClassName("计算器", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui" +
