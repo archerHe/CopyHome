@@ -136,7 +136,7 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
                 }else if (mCurrentItem == mViewArrayList.size() - 1){
                     mMainViewPager.setCurrentItem(1);
                 }
-               // mTextToSpeech.speak(titleList.get(1), TextToSpeech.QUEUE_ADD, null);
+                //mTextToSpeech.speak(titleList.get(1), TextToSpeech.QUEUE_ADD, null);
                 //Log.d(TAG, "SCROLL_STATE_IDLE: i " + mMainViewPager.getCurrentItem());
                 break;
             case ViewPager.SCROLL_STATE_DRAGGING:
@@ -166,6 +166,13 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
         switch (keyCode){
             case KeyEvent.KEYCODE_ENTER:
                 startActivityFromPosition(mCurrentItem);
+                break;
+            case KeyEvent.KEYCODE_BACK:
+                Intent intent = new Intent();
+                ComponentName componentName = new ComponentName("com.android.ctyon.copyhome", "com.android.ctyon.copyhome.ui.MainLauncher");
+                intent.setComponent(componentName);
+                startActivity(intent);
+                finish();
                 break;
         }
 

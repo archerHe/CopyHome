@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextClock;
@@ -39,32 +40,36 @@ public class MainLauncher extends AppCompatActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
+        Log.d("MainLauncher", "onKeyDown: " + keyCode);
         Intent intent = new Intent();
 
         switch (keyCode) {
             case KeyEvent.KEYCODE_MENU:
                 intent.setComponent(new ComponentName("com.android.ctyon.copyhome", "com.android" +
                         ".ctyon.copyhome.Main2Activity"));
+                startActivity(intent);
                 break;
             case KeyEvent.KEYCODE_BACK:
-                finish();
+                intent.setComponent(new ComponentName("com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui.activity.contacts.ContactMainActivity"));
+                startActivity(intent);
                 break;
             case KeyEvent.KEYCODE_DPAD_UP:
-                quickStart("preference_up");
+                quickStart("preference_up", 1);
                 return super.onKeyDown(keyCode, event);
             case KeyEvent.KEYCODE_DPAD_DOWN:
-                quickStart("preference_down");
+                quickStart("preference_down", 2);
                 return super.onKeyDown(keyCode, event);
             case KeyEvent.KEYCODE_DPAD_LEFT:
-                quickStart("preference_left");
+                quickStart("preference_left", 3);
                 return super.onKeyDown(keyCode, event);
             case KeyEvent.KEYCODE_DPAD_RIGHT:
-                quickStart("preference_right");
+                quickStart("preference_right", 4);
                 return super.onKeyDown(keyCode, event);
+
             default:
                 return super.onKeyDown(keyCode, event);
         }
-        startActivity(intent);
+
         return super.onKeyDown(keyCode, event);
     }
 
@@ -101,8 +106,8 @@ public class MainLauncher extends AppCompatActivity {
                 ".FileManager.FirstAct"));
     }
 
-    private void quickStart(String prefKey){
-        int appIndex = SpHelper.getInt(MainLauncher.this, prefKey, 0);
+    private void quickStart(String prefKey, int defVal){
+        int appIndex = SpHelper.getInt(MainLauncher.this, prefKey, defVal);
         Intent intent = new Intent();
         ComponentName componentName = new ComponentName(mAppInfoList.get(appIndex).getPackageName(), mAppInfoList.get(appIndex).getClassName());
         intent.setComponent(componentName);
