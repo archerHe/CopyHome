@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="white">#FFFFFF</color>
+    <color name="comm_item_nor">#ffffff</color>
+    <color name="comm_item_focus">#ff9a00</color>
+    <color name="comm_item_pressed">#ff9a00</color>
 </resources>
