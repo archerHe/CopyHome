@@ -41,7 +41,7 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
     private TextView                 tv_title;
     private LinkedList<AppClassName> mActivityClassNameList;
     private int                      mCurrentItem;
-    private TextToSpeech mTextToSpeech;
+    private TextToSpeech             mTextToSpeech;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,10 +70,10 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
         mMainViewPager.setCurrentItem(1);
         //mMainViewPager.setCurrentItem(mViewArrayList.size() - 2, false);
         //mMainViewPager.setVisibility(View.INVISIBLE);
-        mHandler = new Handler(){
+        mHandler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
-                switch (msg.what){
+                switch (msg.what) {
 
                 }
                 super.handleMessage(msg);
@@ -87,7 +87,8 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
             @Override
             public void run() {
                 Intent intent = new Intent();
-                ComponentName componentName = new ComponentName("com.android.ctyon.copyhome", "com.android.ctyon.copyhome.ui.OtherAppsActivity");
+                ComponentName componentName = new ComponentName("com.android.ctyon.copyhome",
+                "com.android.ctyon.copyhome.ui.OtherAppsActivity");
                 intent.setComponent(componentName);
                 startActivity(intent);
             }
@@ -124,26 +125,28 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
 
         Log.d(TAG, "selected..  " + i);
 
+
+
     }
 
     @Override
     public void onPageScrollStateChanged(int i) {
         switch (i) {
             case ViewPager.SCROLL_STATE_IDLE:
-                if(mCurrentItem == 0){
+                if (mCurrentItem == 0) {
                     mMainViewPager.setCurrentItem(mViewArrayList.size() - 2, false);
 
-                }else if (mCurrentItem == mViewArrayList.size() - 1){
+                } else if (mCurrentItem == mViewArrayList.size() - 1) {
                     mMainViewPager.setCurrentItem(1);
                 }
                 //mTextToSpeech.speak(titleList.get(1), TextToSpeech.QUEUE_ADD, null);
                 //Log.d(TAG, "SCROLL_STATE_IDLE: i " + mMainViewPager.getCurrentItem());
                 break;
             case ViewPager.SCROLL_STATE_DRAGGING:
-                if(mCurrentItem == 0){
+                if (mCurrentItem == 0) {
                     mMainViewPager.setCurrentItem(mViewArrayList.size() - 2, false);
 
-                }else if (mCurrentItem == mViewArrayList.size() - 1){
+                } else if (mCurrentItem == mViewArrayList.size() - 1) {
                     mMainViewPager.setCurrentItem(1);
                 }
                 break;
@@ -163,17 +166,31 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         Log.d(TAG, "keycode: " + keyCode);
 
-        switch (keyCode){
+        switch (keyCode) {
             case KeyEvent.KEYCODE_ENTER:
                 startActivityFromPosition(mCurrentItem);
                 break;
             case KeyEvent.KEYCODE_BACK:
                 Intent intent = new Intent();
-                ComponentName componentName = new ComponentName("com.android.ctyon.copyhome", "com.android.ctyon.copyhome.ui.MainLauncher");
+                ComponentName componentName = new ComponentName("com.android.ctyon.copyhome",
+                        "com.android.ctyon.copyhome.ui.MainLauncher");
                 intent.setComponent(componentName);
                 startActivity(intent);
                 finish();
                 break;
+            case KeyEvent.KEYCODE_0:
+            case KeyEvent.KEYCODE_1:
+            case KeyEvent.KEYCODE_2:
+            case KeyEvent.KEYCODE_3:
+            case KeyEvent.KEYCODE_4:
+            case KeyEvent.KEYCODE_5:
+            case KeyEvent.KEYCODE_6:
+            case KeyEvent.KEYCODE_7:
+            case KeyEvent.KEYCODE_8:
+            case KeyEvent.KEYCODE_9:
+                startCallNumber(keyCode - KeyEvent.KEYCODE_0);
+                break;
+
         }
 
         return super.onKeyDown(keyCode, event);
@@ -181,26 +198,34 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        Log.d(TAG,"touch event" + event);
+        Log.d(TAG, "touch event" + event);
 
         return super.onTouchEvent(event);
     }
 
 
-
-    private void initActivityClassNameList(){
-        mActivityClassNameList.add(new AppClassName("contact", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui.activity.contacts.ContactMainActivity"));
-        mActivityClassNameList.add(new AppClassName("call", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui.activity.dialer.CallMainActivity"));
-        mActivityClassNameList.add(new AppClassName("sms", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui.activity.message.MessageMainActivity"));
-        mActivityClassNameList.add(new AppClassName("media", "com.android.ctyon.copyhome", "com.android.ctyon.copyhome.ui.MediaActivity"));
-        mActivityClassNameList.add(new AppClassName("tools", "com.android.ctyon.copyhome", "com.android.ctyon.copyhome.ui.ToolsActivity"));
-        mActivityClassNameList.add(new AppClassName("settings", "com.android.settings", "com.android.settings.Settings"));
-        mActivityClassNameList.add(new AppClassName("wechat", "com.tencent.mm", "com.tencent.mm.ui.LauncherUI"));
-        mActivityClassNameList.add(new AppClassName("yzf", "com.chinatelecom.bestpayclient", "com.chinatelecom.bestpayclient.ui.activity.GuideActivity"));
-        mActivityClassNameList.add(new AppClassName("others", "com.android.ctyon.copyhome", "com.android.ctyon.copyhome.ui.OtherAppsActivity"));
+    private void initActivityClassNameList() {
+        mActivityClassNameList.add(new AppClassName("contact", "com.ctyon.ctyonlauncher", "com" +
+                ".ctyon.ctyonlauncher.ui.activity.contacts.ContactMainActivity"));
+        mActivityClassNameList.add(new AppClassName("call", "com.ctyon.ctyonlauncher", "com.ctyon" +
+                ".ctyonlauncher.ui.activity.dialer.CallMainActivity"));
+        mActivityClassNameList.add(new AppClassName("sms", "com.ctyon.ctyonlauncher", "com.ctyon" +
+                ".ctyonlauncher.ui.activity.message.MessageMainActivity"));
+        mActivityClassNameList.add(new AppClassName("media", "com.android.ctyon.copyhome", "com" +
+                ".android.ctyon.copyhome.ui.MediaActivity"));
+        mActivityClassNameList.add(new AppClassName("tools", "com.android.ctyon.copyhome", "com" +
+                ".android.ctyon.copyhome.ui.ToolsActivity"));
+        mActivityClassNameList.add(new AppClassName("settings", "com.android.settings", "com" +
+                ".android.settings.Settings"));
+        mActivityClassNameList.add(new AppClassName("wechat", "com.tencent.mm", "com.tencent.mm" +
+                ".ui.LauncherUI"));
+        mActivityClassNameList.add(new AppClassName("yzf", "com.chinatelecom.bestpayclient", "com" +
+                ".chinatelecom.bestpayclient.ui.activity.GuideActivity"));
+        mActivityClassNameList.add(new AppClassName("others", "com.android.ctyon.copyhome", "com" +
+                ".android.ctyon.copyhome.ui.OtherAppsActivity"));
     }
 
-    private void initTitleList(){
+    private void initTitleList() {
         titleList = new LinkedList<String>();
         titleList.add("通讯录");
         titleList.add("通话管理");
@@ -212,26 +237,40 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
         titleList.add("翼支付");
         titleList.add("其他应用");
 
-        View v = (View)findViewById(R.id.main2_bottom_layout);
+        View v = (View) findViewById(R.id.main2_bottom_layout);
         TextView tvOK = v.findViewById(R.id.ok_tv);
         TextView tvBack = v.findViewById(R.id.back_tv);
         tvOK.setTextColor(Color.rgb(255, 255, 255));
         tvBack.setTextColor(Color.rgb(255, 255, 255));
     }
-    private void startActivityFromPosition(int p){
+
+    private void startActivityFromPosition(int p) {
 
         p = mCurrentItem;
-        if(0 == p){
-          p = mViewArrayList.size() - 2;
-        }else if (mViewArrayList.size() - 1 == p){
+        if (0 == p) {
+            p = mViewArrayList.size() - 2;
+        } else if (mViewArrayList.size() - 1 == p) {
             p = 1;
         }
         //for(int i = 0; i < mActivityClassNameList.size(); i++){
-            Log.d(TAG, "p: " + p + " packagename: " + mActivityClassNameList.get(p -1 ).getPackageName() + "class name: " + mActivityClassNameList.get(p - 1).getClassName());
+        Log.d(TAG, "p: " + p + " packagename: " + mActivityClassNameList.get(p - 1)
+                .getPackageName() + "class name: " + mActivityClassNameList.get(p - 1)
+                .getClassName());
         //}
-        //Log.d(TAG, "p: " + p + " packagename: " + mActivityClassNameList.get(p ).getPackageName() + "class name: " + mActivityClassNameList.get(p ).getClassName());
+        //Log.d(TAG, "p: " + p + " packagename: " + mActivityClassNameList.get(p ).getPackageName
+        // () + "class name: " + mActivityClassNameList.get(p ).getClassName());
         Intent intent = new Intent();
-        ComponentName componentName = new ComponentName(mActivityClassNameList.get(p - 1).getPackageName(), mActivityClassNameList.get(p - 1).getClassName());
+        ComponentName componentName = new ComponentName(mActivityClassNameList.get(p - 1)
+                .getPackageName(), mActivityClassNameList.get(p - 1).getClassName());
+        intent.setComponent(componentName);
+        startActivity(intent);
+    }
+
+    private void startCallNumber(int num) {
+        Intent intent = new Intent();
+        intent.putExtra("number", String.valueOf(num));
+        ComponentName componentName = new ComponentName("com.ctyon.ctyonlauncher", "com.ctyon" +
+                ".ctyonlauncher.ui.activity.dialer.CallActivity");
         intent.setComponent(componentName);
         startActivity(intent);
     }

@@ -8,6 +8,7 @@ import android.content.pm.ResolveInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -49,6 +50,25 @@ public class OtherAppsActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode){
+            case KeyEvent.KEYCODE_0:
+            case KeyEvent.KEYCODE_1:
+            case KeyEvent.KEYCODE_2:
+            case KeyEvent.KEYCODE_3:
+            case KeyEvent.KEYCODE_4:
+            case KeyEvent.KEYCODE_5:
+            case KeyEvent.KEYCODE_6:
+            case KeyEvent.KEYCODE_7:
+            case KeyEvent.KEYCODE_8:
+            case KeyEvent.KEYCODE_9:
+                startCallNumber(keyCode - KeyEvent.KEYCODE_0);
+                break;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
     private void queryAppInfo() {
         Log.d(TAG, "queryAppinfo");
         PackageManager pm = this.getPackageManager();
@@ -63,5 +83,14 @@ public class OtherAppsActivity extends AppCompatActivity {
         mData = new LinkedList<AppClassName>();
         mData.add(new AppClassName("浏览器", "com.android.browser", "com.android.browser.BrowserActivity"));
         mData.add(new AppClassName("客服中心", "com.android.browser", "com.android.browser.BrowserActivity"));
+    }
+
+    private void startCallNumber(int num) {
+        Intent intent = new Intent();
+        intent.putExtra("number", String.valueOf(num));
+        ComponentName componentName = new ComponentName("com.ctyon.ctyonlauncher", "com.ctyon" +
+                ".ctyonlauncher.ui.activity.dialer.CallActivity");
+        intent.setComponent(componentName);
+        startActivity(intent);
     }
 }

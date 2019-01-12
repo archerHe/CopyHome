@@ -50,7 +50,8 @@ public class MainLauncher extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case KeyEvent.KEYCODE_BACK:
-                intent.setComponent(new ComponentName("com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui.activity.contacts.ContactMainActivity"));
+                intent.setComponent(new ComponentName("com.ctyon.ctyonlauncher", "com.ctyon" +
+                        ".ctyonlauncher.ui.activity.contacts.ContactMainActivity"));
                 startActivity(intent);
                 break;
             case KeyEvent.KEYCODE_DPAD_UP:
@@ -64,6 +65,18 @@ public class MainLauncher extends AppCompatActivity {
                 return super.onKeyDown(keyCode, event);
             case KeyEvent.KEYCODE_DPAD_RIGHT:
                 quickStart("preference_right", 4);
+                return super.onKeyDown(keyCode, event);
+            case KeyEvent.KEYCODE_0:
+            case KeyEvent.KEYCODE_1:
+            case KeyEvent.KEYCODE_2:
+            case KeyEvent.KEYCODE_3:
+            case KeyEvent.KEYCODE_4:
+            case KeyEvent.KEYCODE_5:
+            case KeyEvent.KEYCODE_6:
+            case KeyEvent.KEYCODE_7:
+            case KeyEvent.KEYCODE_8:
+            case KeyEvent.KEYCODE_9:
+                startCallNumber(keyCode - KeyEvent.KEYCODE_0);
                 return super.onKeyDown(keyCode, event);
 
             default:
@@ -106,10 +119,20 @@ public class MainLauncher extends AppCompatActivity {
                 ".FileManager.FirstAct"));
     }
 
-    private void quickStart(String prefKey, int defVal){
+    private void quickStart(String prefKey, int defVal) {
         int appIndex = SpHelper.getInt(MainLauncher.this, prefKey, defVal);
         Intent intent = new Intent();
-        ComponentName componentName = new ComponentName(mAppInfoList.get(appIndex).getPackageName(), mAppInfoList.get(appIndex).getClassName());
+        ComponentName componentName = new ComponentName(mAppInfoList.get(appIndex).getPackageName
+                (), mAppInfoList.get(appIndex).getClassName());
+        intent.setComponent(componentName);
+        startActivity(intent);
+    }
+
+    private void startCallNumber(int num) {
+        Intent intent = new Intent();
+        intent.putExtra("number", String.valueOf(num));
+        ComponentName componentName = new ComponentName("com.ctyon.ctyonlauncher", "com.ctyon" +
+                ".ctyonlauncher.ui.activity.dialer.CallActivity");
         intent.setComponent(componentName);
         startActivity(intent);
     }
