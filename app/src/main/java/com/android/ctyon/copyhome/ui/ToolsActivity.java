@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
@@ -25,6 +26,8 @@ import java.util.Map;
 
 public class ToolsActivity extends AppCompatActivity {
     private static final String             TAG              = "ToolsActivity";
+    private final String SHOW_RECENT_APPS_RECEIVER = "anroid.intent.show.recent.apps";
+
     private              Context            mContext;
     private              List<AppClassName> mData            = null;
     private              ListviewAdapter    mListviewAdapter = null;
@@ -46,6 +49,7 @@ public class ToolsActivity extends AppCompatActivity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d(TAG, "onItemClick: pos " + position);
                 switch (position) {
                     case 0:
                         Intent intent = new Intent("com.android.settings.SOS_SETTINGS");
@@ -65,6 +69,12 @@ public class ToolsActivity extends AppCompatActivity {
                     case 6:
                         startApp(6);
                         break;
+                    case 7:
+                        Intent intent1 = new Intent();
+                        intent1.setAction(SHOW_RECENT_APPS_RECEIVER);
+                        ToolsActivity.this.sendBroadcast(intent1);
+                        break;
+
                 }
             }
         });
@@ -98,7 +108,7 @@ public class ToolsActivity extends AppCompatActivity {
         mData.add(new AppClassName("语音助手", "com.android.gallery3d", "com.android.gallery3d.app.GalleryActivity"));
         mData.add(new AppClassName("计算器", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui" +
                 ".activity.caculator.SimpleCalculatorActivity"));
-        mData.add(new AppClassName("时钟", "com.android.gallery3d", "com.android.gallery3d.app.GalleryActivity"));
+        mData.add(new AppClassName("时钟", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui.activity.alarm.AlarmClockActivity"));
         mData.add(new AppClassName("日历", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui" +
                 ".activity.calendar.CalendarActivity"));
         mData.add(new AppClassName("一键清理", "com.android.gallery3d", "com.android.gallery3d.app.GalleryActivity"));

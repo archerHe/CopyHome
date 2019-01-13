@@ -93,17 +93,31 @@ public class QuickStartFragment extends PreferenceFragment implements Preference
 
     private void initData() {
         mData = new LinkedList<>();
-        mData.add(new AppClassName("拍照", "org.codeaurora.snapcam", "com.android.camera" +
-                ".CameraLauncher"));
+        mData.add(new AppClassName("浏览器", "com.android.browser", "com.android.browser.BrowserActivity"));
+        mData.add(new AppClassName("时钟", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui.activity.alarm.AlarmClockActivity"));
         mData.add(new AppClassName("相册", "com.android.gallery3d", "com.android.gallery3d.app" +
                 ".GalleryActivity"));
         mData.add(new AppClassName("音乐", "com.android.music", "com.android.music" +
                 ".MusicBrowserActivity"));
-        mData.add(new AppClassName("收音机", "com.android.fmradio", "com.android.fmradio" +
-                ".FmMainActivity"));
-        mData.add(new AppClassName("录音机", "com.android.soundrecorder", "com.android.soundrecorder" +
-                ".SoundRecorder"));
+        mData.add(new AppClassName("设置", "com.android.settings", "com" +
+                ".android.settings.Settings"));
+        mData.add(new AppClassName("相机", "org.codeaurora.snapcam", "com.android.camera" +
+                ".CameraLauncher"));
+        mData.add(new AppClassName("客服中心", "com.yarin.android.FileManager", "com.ctyon.FileManager.FirstAct"));
+        mData.add(new AppClassName("日历", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui" +
+                ".activity.calendar.CalendarActivity"));
+        mData.add(new AppClassName("FM电台", "com.android.fmradio", "com.android.fmradio.FmMainActivity"));
+        mData.add(new AppClassName("SoS紧急呼叫", "com.yarin.android.FileManager", "com.ctyon.FileManager.FirstAct"));
+        mData.add(new AppClassName("录音机", "com.android.soundrecorder", "com.android.soundrecorder.SoundRecorder"));
         mData.add(new AppClassName("文件管理", "com.yarin.android.FileManager", "com.ctyon.FileManager.FirstAct"));
+        mData.add(new AppClassName("亲情号码", "com.yarin.android.FileManager", "com.ctyon.FileManager.FirstAct"));
+        mData.add(new AppClassName("计算器", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui" +
+                ".activity.caculator.SimpleCalculatorActivity"));
+        mData.add(new AppClassName("短信", "com.ctyon.ctyonlauncher", "com.ctyon" +
+                ".ctyonlauncher.ui.activity.message.MessageMainActivity"));
+        mData.add(new AppClassName("yzf", "com.chinatelecom.bestpayclient", "com" +
+                ".chinatelecom.bestpayclient.ui.activity.GuideActivity"));
+        mData.add(new AppClassName("一键清除", "com.yarin.android.FileManager", "com.ctyon.FileManager.FirstAct"));
     }
 }
 
