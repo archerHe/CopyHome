@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -48,6 +49,22 @@ public class AppListActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode){
+            case KeyEvent.KEYCODE_MENU:
+                int curPos = mListView.getSelectedItemPosition();
+                Intent intent = new Intent();
+                intent.putExtra("pref_key", mPrefKey);
+                intent.putExtra("name", mData.get(curPos).getName());
+                intent.putExtra("position", curPos);
+                setResult(2, intent);
+                finish();
+                break;
+
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
     private void initAdapterData(){
         mData = new LinkedList<>();

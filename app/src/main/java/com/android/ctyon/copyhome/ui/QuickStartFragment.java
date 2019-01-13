@@ -33,8 +33,7 @@ public class QuickStartFragment extends PreferenceFragment implements Preference
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.preference_quick_start);
         prefList = Arrays.asList(getResources().getStringArray(R.array.quick_start_pref_keys));
-        pkgList = Arrays.asList(getResources().getStringArray(R.array.applist_package_name));
-        clsNameList = Arrays.asList(getResources().getStringArray(R.array.applist_class_name));
+
     }
 
     @Override

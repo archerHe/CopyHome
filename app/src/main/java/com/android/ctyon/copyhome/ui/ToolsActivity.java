@@ -74,7 +74,10 @@ public class ToolsActivity extends AppCompatActivity {
                         intent1.setAction(SHOW_RECENT_APPS_RECEIVER);
                         ToolsActivity.this.sendBroadcast(intent1);
                         break;
-
+                    case KeyEvent.KEYCODE_MENU:
+                        int curPos = mListView.getSelectedItemPosition();
+                        startApp(curPos);
+                        break;
                 }
             }
         });
@@ -95,6 +98,9 @@ public class ToolsActivity extends AppCompatActivity {
             case KeyEvent.KEYCODE_9:
                 startCallNumber(keyCode - KeyEvent.KEYCODE_0);
                 break;
+            case KeyEvent.KEYCODE_MENU:
+                int curPos = mListView.getSelectedItemPosition();
+                startApp(curPos);
         }
         return super.onKeyDown(keyCode, event);
     }

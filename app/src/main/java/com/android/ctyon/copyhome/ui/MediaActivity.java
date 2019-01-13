@@ -59,6 +59,10 @@ public class MediaActivity extends AppCompatActivity {
             case KeyEvent.KEYCODE_9:
                 startCallNumber(keyCode - KeyEvent.KEYCODE_0);
                 break;
+            case KeyEvent.KEYCODE_MENU:
+                int curPos = mListView.getSelectedItemPosition();
+                startApp(curPos);
+                break;
         }
 
 

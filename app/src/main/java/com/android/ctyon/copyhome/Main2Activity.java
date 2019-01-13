@@ -167,6 +167,7 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
         Log.d(TAG, "keycode: " + keyCode);
 
         switch (keyCode) {
+            case KeyEvent.KEYCODE_MENU:
             case KeyEvent.KEYCODE_ENTER:
                 startActivityFromPosition(mCurrentItem);
                 break;
