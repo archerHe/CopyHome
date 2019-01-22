@@ -17,16 +17,15 @@
         android:text="@string/sms"/>
 
 
-
-        <ImageView
-            android:id="@+id/icon_iv"
-            android:layout_width="220.0dip"
-            android:layout_height="240.0dip"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="28.0dip"
-            android:scaleType="centerCrop"
-            android:src="@drawable/main_item_icon_sms2" />
+    <ImageView
+        android:id="@+id/icon_iv"
+        android:layout_width="220.0dip"
+        android:layout_height="240.0dip"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/main_item_icon_sms2" />
 
 
 </LinearLayout>

@@ -22,7 +22,7 @@
         android:layout_height="240dp"
         android:layout_below="@id/disname_tv"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="1dp"
+        android:layout_marginTop="20dp"
         android:scaleType="centerCrop"
         android:src="@drawable/main_item_icon_contact2" />
 
