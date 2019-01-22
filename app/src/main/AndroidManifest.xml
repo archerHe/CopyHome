@@ -38,7 +38,7 @@
         </activity>
         <activity
             android:name=".ui.QuickStartActivity"
-            android:theme="@style/perference_set_activity" />
+            />
         <activity
             android:name=".ui.AppListActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
