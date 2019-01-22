@@ -1,25 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="1">
-        <Button
-            android:id="@+id/btn_switch_Fragments"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Switch Fragments"/>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/right_fragment"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
-        android:background="@android:color/darker_gray"></LinearLayout>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ff000000"
+    android:orientation="vertical"
+    android:visibility="invisible">
 
 
 </LinearLayout>

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.android.ctyon.copyhome">
 
+    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -37,7 +38,7 @@
         </activity>
         <activity
             android:name=".ui.QuickStartActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/perference_set_activity" />
         <activity
             android:name=".ui.AppListActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

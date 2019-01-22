@@ -15,14 +15,14 @@
         android:layout_marginBottom="5.0dip"
         android:text="@string/tools_title"
         android:textColor="@android:color/black"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:textStyle="bold" />
 
     <ListView
         android:id="@+id/tools_list_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="20"
+        android:layout_weight="30"
         android:divider="#ffd6ddef"
         android:listSelector="@drawable/listview_item_bg"
         android:dividerHeight="1.0dip" />

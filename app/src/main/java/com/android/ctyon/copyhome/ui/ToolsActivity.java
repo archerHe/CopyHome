@@ -107,7 +107,7 @@ public class ToolsActivity extends AppCompatActivity {
 
     private void initAdapterData() {
         mData = new LinkedList<>();
-        mData.add(new AppClassName("sos", "com.android.gallery3d", "com.android.gallery3d.app.GalleryActivity"));
+        mData.add(new AppClassName("SOS求助", "com.android.gallery3d", "com.android.gallery3d.app.GalleryActivity"));
         mData.add(new AppClassName("导航键启动设置", "com.android.ctyon.copyhome", "com.android.ctyon" +
                 ".copyhome.ui.QuickStartActivity"));
         mData.add(new AppClassName("亲情号码", "com.android.gallery3d", "com.android.gallery3d.app.GalleryActivity"));
