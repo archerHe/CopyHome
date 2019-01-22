@@ -72,8 +72,7 @@ public class AppListActivity extends AppCompatActivity {
         mData.add(new AppClassName("时钟", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui.activity.alarm.AlarmClockActivity"));
         mData.add(new AppClassName("相册", "com.android.gallery3d", "com.android.gallery3d.app" +
                 ".GalleryActivity"));
-        mData.add(new AppClassName("音乐", "com.android.music", "com.android.music" +
-                ".MusicBrowserActivity"));
+        mData.add(new AppClassName("音乐", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui.activity.music.MusicActivity"));
         mData.add(new AppClassName("设置", "com.android.settings", "com" +
                 ".android.settings.Settings"));
         mData.add(new AppClassName("相机", "org.codeaurora.snapcam", "com.android.camera" +

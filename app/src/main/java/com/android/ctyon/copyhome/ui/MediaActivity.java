@@ -73,7 +73,7 @@ public class MediaActivity extends AppCompatActivity {
         mData = new LinkedList<AppClassName>();
         mData.add(new AppClassName("拍照", "org.codeaurora.snapcam", "com.android.camera.CameraLauncher"));
         mData.add(new AppClassName("相册", "com.android.gallery3d", "com.android.gallery3d.app.GalleryActivity"));
-        mData.add(new AppClassName("音乐", "com.android.music", "com.android.music.MusicBrowserActivity"));
+        mData.add(new AppClassName("音乐", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui.activity.music.MusicActivity"));
         mData.add(new AppClassName("收音机", "com.android.fmradio", "com.android.fmradio.FmMainActivity"));
         mData.add(new AppClassName("录音机", "com.android.soundrecorder", "com.android.soundrecorder.SoundRecorder"));
         mData.add(new AppClassName("文件管理", "com.yarin.android.FileManager", "com.ctyon.FileManager.FirstAct"));

@@ -112,8 +112,7 @@ public class MainLauncher extends AppCompatActivity {
         mAppInfoList.add(new AppClassName("时钟", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui.activity.alarm.AlarmClockActivity"));
         mAppInfoList.add(new AppClassName("相册", "com.android.gallery3d", "com.android.gallery3d.app" +
                 ".GalleryActivity"));
-        mAppInfoList.add(new AppClassName("音乐", "com.android.music", "com.android.music" +
-                ".MusicBrowserActivity"));
+        mAppInfoList.add(new AppClassName("音乐", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui.activity.music.MusicActivity"));
         mAppInfoList.add(new AppClassName("设置", "com.android.settings", "com" +
                 ".android.settings.Settings"));
         mAppInfoList.add(new AppClassName("相机", "org.codeaurora.snapcam", "com.android.camera" +
