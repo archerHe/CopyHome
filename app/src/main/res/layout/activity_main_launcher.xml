@@ -16,21 +16,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:gravity="center_horizontal"
 >
 
             <TextClock
-                android:layout_marginStart="50dp"
+                android:layout_marginStart="35dp"
                 android:id="@+id/time_tc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:format12Hour="kk:mm"
                 android:format24Hour="kk:mm"
-                android:gravity="center_horizontal"
                 android:includeFontPadding="false"
                 android:singleLine="true"
                 android:textColor="#000000"
-                android:textSize="60sp"
+                android:textSize="70dp"
+                android:textStyle="bold"
                 />
 
             <TextClock
@@ -43,9 +44,8 @@
                 android:gravity="center_horizontal"
                 android:includeFontPadding="false"
                 android:singleLine="true"
-
                 android:textColor="#000000"
-                android:textSize="20sp"
+                android:textSize="28dp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -54,14 +54,12 @@
             android:id="@+id/date_tc"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:layout_below="@id/time_layout"
-            android:layout_marginTop="15dp"
             android:format12Hour="yyyy.MM.dd"
             android:format24Hour="yyyy.MM.dd"
-            android:gravity="center"
-
             android:textColor="#000000"
-            android:textSize="30sp"
+            android:textSize="28dp"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -71,7 +69,6 @@
             android:layout_below="@id/date_tc"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -81,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10.0dip"
                 android:textColor="#000000"
-                android:textSize="30sp"
+                android:textSize="28dp"
                 android:textStyle="bold" />
 
             <TextClock
@@ -92,7 +89,7 @@
                 android:format12Hour="EE"
                 android:format24Hour="EE"
                 android:textColor="#000000"
-                android:textSize="30sp"
+                android:textSize="28dp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -106,8 +103,7 @@
             android:layout_marginTop="10dp"
             android:text="@string/no_sim_card_notice"
             android:textColor="#000000"
-            android:textSize="30sp"
-            android:textStyle="bold"
+            android:textSize="23dp"
             android:visibility="invisible"/>
 
 
