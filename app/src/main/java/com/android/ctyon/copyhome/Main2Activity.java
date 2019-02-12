@@ -4,6 +4,7 @@ import com.android.ctyon.copyhome.adapter.data.AppClassName;
 import com.android.ctyon.copyhome.ui.MainViewPager;
 
 
+import android.app.Instrumentation;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.graphics.Color;
@@ -167,6 +168,12 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
         Log.d(TAG, "keycode: " + keyCode);
 
         switch (keyCode) {
+            case KeyEvent.KEYCODE_DPAD_DOWN:
+                sendKeyCode2(KeyEvent.KEYCODE_DPAD_RIGHT);
+                break;
+            case KeyEvent.KEYCODE_DPAD_UP:
+                sendKeyCode2(KeyEvent.KEYCODE_DPAD_LEFT);
+                break;
             case KeyEvent.KEYCODE_MENU:
             case KeyEvent.KEYCODE_ENTER:
                 startActivityFromPosition(mCurrentItem);
@@ -275,4 +282,20 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
         intent.setComponent(componentName);
         startActivity(intent);
     }
+
+    private void sendKeyCode2(final int keyCode) {
+                 new Thread(new Runnable() {
+             @Override
+             public void run() {
+                                 try {
+                                         // 创建一个Instrumentation对象9
+                                      Instrumentation inst = new Instrumentation();
+                                         // 调用inst对象的按键模拟方法
+                                         inst.sendKeyDownUpSync(keyCode);
+                                     } catch (Exception e) {
+                                         e.printStackTrace();
+                                     }
+                             }
+         }).start();
+             }
 }

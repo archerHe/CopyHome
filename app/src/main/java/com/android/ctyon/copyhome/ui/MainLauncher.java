@@ -47,6 +47,7 @@ public class MainLauncher extends AppCompatActivity {
 
         switch (keyCode) {
             case KeyEvent.KEYCODE_MENU:
+            case KeyEvent.KEYCODE_ENTER:
                 intent.setComponent(new ComponentName("com.android.ctyon.copyhome", "com.android" +
                         ".ctyon.copyhome.Main2Activity"));
                 startActivity(intent);
