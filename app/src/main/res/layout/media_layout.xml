@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical">
+    android:layout_height="fill_parent">
 
     <TextView
         android:id="@+id/disname_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:singleLine="true"
         android:textColor="@android:color/white"
@@ -21,9 +20,9 @@
         android:id="@+id/icon_iv"
         android:layout_width="220.0dip"
         android:layout_height="240.0dip"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@id/disname_tv"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:scaleType="centerCrop"
         android:src="@drawable/main_item_icon_media2" />
-</LinearLayout>
+</RelativeLayout>
