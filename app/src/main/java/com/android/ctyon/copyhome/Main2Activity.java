@@ -24,6 +24,7 @@ import android.widget.TextView;
 
 import com.android.ctyon.copyhome.adapter.MainPagerAdapter;
 import com.android.ctyon.copyhome.ui.MainViewPager;
+import com.android.ctyon.copyhome.utils.SpHelper;
 
 import org.w3c.dom.Text;
 
@@ -43,6 +44,8 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
     private LinkedList<AppClassName> mActivityClassNameList;
     private int                      mCurrentItem;
     private TextToSpeech             mTextToSpeech;
+
+    private boolean isSpeechMenuOn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,6 +112,7 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
 
     @Override
     public void onPageSelected(int i) {
+        Log.d(TAG, "onPageSelected: ");
         mCurrentItem = i;
         /*
         int pageIndex = i;
@@ -124,8 +128,7 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
         */
         //mMainViewPager.setCurrentItem(i, false);
 
-        Log.d(TAG, "selected..  " + i);
-
+        // Log.d(TAG, "selected..  " + i);
 
 
     }
@@ -140,8 +143,10 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
                 } else if (mCurrentItem == mViewArrayList.size() - 1) {
                     mMainViewPager.setCurrentItem(1);
                 }
-                //mTextToSpeech.speak(titleList.get(1), TextToSpeech.QUEUE_ADD, null);
-                //Log.d(TAG, "SCROLL_STATE_IDLE: i " + mMainViewPager.getCurrentItem());
+
+                if(isSpeechMenuOn){
+                    mTextToSpeech.speak(titleList.get(mCurrentItem - 1), TextToSpeech.QUEUE_ADD, null);
+                }
                 break;
             case ViewPager.SCROLL_STATE_DRAGGING:
                 if (mCurrentItem == 0) {
@@ -284,18 +289,27 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
     }
 
     private void sendKeyCode2(final int keyCode) {
-                 new Thread(new Runnable() {
-             @Override
-             public void run() {
-                                 try {
-                                         // 创建一个Instrumentation对象9
-                                      Instrumentation inst = new Instrumentation();
-                                         // 调用inst对象的按键模拟方法
-                                         inst.sendKeyDownUpSync(keyCode);
-                                     } catch (Exception e) {
-                                         e.printStackTrace();
-                                     }
-                             }
-         }).start();
-             }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    // 创建一个Instrumentation对象9
+                    Instrumentation inst = new Instrumentation();
+                    // 调用inst对象的按键模拟方法
+                    inst.sendKeyDownUpSync(keyCode);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        isSpeechMenuOn = SpHelper.getBoolean(Main2Activity.this, "voice_menu", true);
+        if (isSpeechMenuOn) {
+            mTextToSpeech.speak(titleList.get(mCurrentItem - 1), TextToSpeech.QUEUE_ADD, null);
+        }
+    }
 }

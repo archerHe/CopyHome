@@ -57,6 +57,9 @@ public class ToolsActivity extends AppCompatActivity {
                         startActivity(intent);
 
                         break;
+                    case 3:
+                        startApp(3);
+                        break;
                     case 1:
                         startApp(1);
                         break;
@@ -111,7 +114,7 @@ public class ToolsActivity extends AppCompatActivity {
         mData.add(new AppClassName("导航键启动设置", "com.android.ctyon.copyhome", "com.android.ctyon" +
                 ".copyhome.ui.QuickStartActivity"));
         mData.add(new AppClassName("亲情号码", "com.android.gallery3d", "com.android.gallery3d.app.GalleryActivity"));
-        mData.add(new AppClassName("语音助手", "com.android.gallery3d", "com.android.gallery3d.app.GalleryActivity"));
+        mData.add(new AppClassName("语音助手", "com.android.ctyon.copyhome", "com.android.ctyon.copyhome.ui.SpeechSettingActivity"));
         mData.add(new AppClassName("计算器", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui" +
                 ".activity.caculator.SimpleCalculatorActivity"));
         mData.add(new AppClassName("时钟", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui.activity.alarm.AlarmClockActivity"));

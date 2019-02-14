@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 
 public class SpHelper {
     private static SharedPreferences mIntance;
-    private static final String TAG = "SpHelper";
+    private static final String TAG = "com.android.ctyon.copyhome_preferences";
 
     private static SharedPreferences getIntance(Context context){
         if(null == mIntance){
@@ -24,5 +24,10 @@ public class SpHelper {
         SharedPreferences.Editor editor = sp.edit();
         editor.putInt(key, val);
         editor.apply();
+    }
+
+    public static boolean getBoolean(Context context, String key, boolean defaultVal){
+        SharedPreferences sp = getIntance(context);
+        return sp.getBoolean(key, defaultVal);
     }
 }

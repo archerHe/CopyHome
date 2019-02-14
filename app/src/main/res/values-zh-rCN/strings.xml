@@ -34,4 +34,6 @@
     <string name="explorer">文件管理</string>
     <string name="calc">计算器</string>
     <string name="quick_start_select_title">导航键启动设置</string>
+    <string name="voice_menu">语音播报菜单</string>
+    <string name="voice_call">语音按键拨号</string>
 </resources>
