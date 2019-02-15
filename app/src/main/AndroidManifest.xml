@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.android.ctyon.copyhome">
+    package="com.android.ctyon.copyhome"
+    android:sharedUserId="android.uid.system">
 
-    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"></uses-permission>
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -15,8 +18,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".Main2Activity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
         <activity
             android:name=".ui.ToolsActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -31,17 +33,18 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.QuickStartActivity"
-            />
+        <activity android:name=".ui.QuickStartActivity" />
         <activity
             android:name=".ui.AppListActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".ui.SpeechSettingActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">></activity>
     </application>
 
 </manifest>
