@@ -6,7 +6,7 @@
     android:layout_height="fill_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:background="@drawable/main_backgroung_blue">
+    android:background="@android:color/black">
 
     <com.android.ctyon.copyhome.ui.MainViewPager
         android:id="@+id/viewpager"
