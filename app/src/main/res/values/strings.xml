@@ -16,7 +16,7 @@
     <string name="others">其他应用</string>
     <string name="main_menu">主菜单</string>
     <string name="main_contact">联系人</string>
-    <string name="no_sim_card_notice">请插入USIM卡</string>
+    <string name="no_sim_card_notice">请插入UIM卡</string>
     <string name="up_key">UP key</string>
     <string name="down_key">Down Key</string>
     <string name="left_key">Left Key</string>

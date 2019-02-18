@@ -145,7 +145,7 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
                 }
 
                 if(isSpeechMenuOn){
-                    mTextToSpeech.speak(titleList.get(mCurrentItem - 1), TextToSpeech.QUEUE_ADD, null);
+                    mTextToSpeech.speak(titleList.get(mCurrentItem - 1), TextToSpeech.QUEUE_FLUSH, null);
                 }
                 break;
             case ViewPager.SCROLL_STATE_DRAGGING:
@@ -309,7 +309,7 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
         super.onResume();
         isSpeechMenuOn = SpHelper.getBoolean(Main2Activity.this, "voice_menu", true);
         if (isSpeechMenuOn) {
-            mTextToSpeech.speak(titleList.get(mCurrentItem - 1), TextToSpeech.QUEUE_ADD, null);
+            mTextToSpeech.speak(titleList.get(mCurrentItem - 1), TextToSpeech.QUEUE_FLUSH, null);
         }
     }
 }
