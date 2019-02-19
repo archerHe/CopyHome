@@ -13,7 +13,7 @@
         android:singleLine="true"
         android:text="@string/wechat"
         android:textColor="@android:color/white"
-        android:textSize="40sp" />
+        android:textSize="32sp" />
 
 
     <ImageView
