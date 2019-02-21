@@ -118,8 +118,7 @@ public class ToolsActivity extends AppCompatActivity {
         mData.add(new AppClassName("计算器", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui" +
                 ".activity.caculator.SimpleCalculatorActivity"));
         mData.add(new AppClassName("时钟", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui.activity.alarm.AlarmClockActivity"));
-        mData.add(new AppClassName("日历", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui" +
-                ".activity.calendar.CalendarActivity"));
+        mData.add(new AppClassName("日历", "com.calendar2345", "com.calendar2345.activity.CalendarMainActivity"));
         mData.add(new AppClassName("一键清理", "com.android.gallery3d", "com.android.gallery3d.app.GalleryActivity"));
     }
 

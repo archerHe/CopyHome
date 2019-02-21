@@ -78,8 +78,7 @@ public class AppListActivity extends AppCompatActivity {
         mData.add(new AppClassName("相机", "org.codeaurora.snapcam", "com.android.camera" +
                 ".CameraLauncher"));
         mData.add(new AppClassName("客服中心", "com.yarin.android.FileManager", "com.ctyon.FileManager.FirstAct"));
-        mData.add(new AppClassName("日历", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui" +
-                ".activity.calendar.CalendarActivity"));
+        mData.add(new AppClassName("日历", "com.calendar2345", "com.calendar2345.activity.CalendarMainActivity"));
         mData.add(new AppClassName("FM电台", "com.android.fmradio", "com.android.fmradio.FmMainActivity"));
         mData.add(new AppClassName("SoS紧急呼叫", "com.yarin.android.FileManager", "com.ctyon.FileManager.FirstAct"));
         mData.add(new AppClassName("录音机", "com.android.soundrecorder", "com.android.soundrecorder.SoundRecorder"));
