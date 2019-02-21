@@ -30,4 +30,9 @@ public class SpHelper {
         SharedPreferences sp = getIntance(context);
         return sp.getBoolean(key, defaultVal);
     }
+
+    public static String getString(Context context, String key, String defaultStr){
+        SharedPreferences sp = getIntance(context);
+        return sp.getString(key, defaultStr);
+    }
 }

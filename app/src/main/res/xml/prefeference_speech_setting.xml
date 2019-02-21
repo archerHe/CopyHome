@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="preferenceScreen">
     <SwitchPreference
         android:key="voice_menu"
         android:switchTextOff=""
@@ -11,5 +12,32 @@
         android:switchTextOff=""
         android:switchTextOn=""
         android:title="@string/voice_call"
-        android:defaultValue="true"/>
+        android:persistent="true"
+        android:defaultValue="false"/>
+    <SwitchPreference
+        android:key="speech_time"
+        android:title="整点报时"
+        ></SwitchPreference>
+    <EditTextPreference
+        android:key="et_time_settings_begin"
+        android:title="整点报时开始时间(小时)"
+        android:dialogTitle="请输入整点报时开始时间(24小时制)"
+        android:defaultValue="8"
+        android:summary="8点"
+        android:inputType="number"
+        android:maxLength="2"
+        android:persistent="true"
+        ></EditTextPreference>
+    <EditTextPreference
+        android:key="et_time_settings_end"
+        android:title="整点报时结束时间(小时)"
+        android:dialogTitle="请输入整点报时结束时间(24小时制)"
+        android:defaultValue="18"
+        android:summary="18点"
+        android:inputType="number"
+        android:maxLength="2"
+        android:persistent="true"
+        ></EditTextPreference>
+
+
 </PreferenceScreen>

@@ -5,7 +5,7 @@
     android:sharedUserId="android.uid.system">
 
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"></uses-permission>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application
         android:name=".MyApplication"
@@ -18,7 +18,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".Main2Activity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".ui.ToolsActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -43,8 +43,25 @@
         <activity
             android:name=".ui.AppListActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".ui.SpeechSettingActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">></activity>
+        <activity
+            android:name=".ui.SpeechSettingActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <receiver
+            android:name=".MyReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <!--action android:name="android.intent.action.TIME_SET"/-->
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="com.copyhome.alarm"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

@@ -89,7 +89,7 @@ public class AppListActivity extends AppCompatActivity {
                 ".activity.caculator.SimpleCalculatorActivity"));
         mData.add(new AppClassName("短信", "com.ctyon.ctyonlauncher", "com.ctyon" +
                 ".ctyonlauncher.ui.activity.message.MessageMainActivity"));
-        mData.add(new AppClassName("yzf", "com.chinatelecom.bestpayclient", "com" +
+        mData.add(new AppClassName("翼支付", "com.chinatelecom.bestpayclient", "com" +
                 ".chinatelecom.bestpayclient.ui.activity.GuideActivity"));
         mData.add(new AppClassName("一键清除", "com.yarin.android.FileManager", "com.ctyon.FileManager.FirstAct"));
     }
