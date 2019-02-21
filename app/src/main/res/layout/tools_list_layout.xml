@@ -15,7 +15,7 @@
         android:layout_marginBottom="5.0dip"
         android:text="@string/tools_title"
         android:textColor="@android:color/black"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
     <ListView
