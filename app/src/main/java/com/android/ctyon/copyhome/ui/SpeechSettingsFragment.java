@@ -92,7 +92,7 @@ public class SpeechSettingsFragment extends PreferenceFragment  implements Prefe
             getActivity().sendBroadcast(intent);
         }
 
-        //Settings.System.putInt(getActivity().getContentResolver(), "speech_call_number_on", voice_call.isChecked()? 1 : 0);
+        Settings.System.putInt(getActivity().getContentResolver(), "speech_call_number_on", voice_call.isChecked()? 1 : 0);
 
     }
 }
