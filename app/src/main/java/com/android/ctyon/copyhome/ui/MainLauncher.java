@@ -41,7 +41,7 @@ public class MainLauncher extends AppCompatActivity {
     }
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
         Log.d("MainLauncher", "onKeyDown: " + keyCode);
         Intent intent = new Intent();
 
@@ -80,14 +80,21 @@ public class MainLauncher extends AppCompatActivity {
             case KeyEvent.KEYCODE_8:
             case KeyEvent.KEYCODE_9:
                 startCallNumber(keyCode - KeyEvent.KEYCODE_0);
-                return super.onKeyDown(keyCode, event);
+                return super.onKeyUp(keyCode, event);
+            case KeyEvent.KEYCODE_STAR:
+                startCallNumber(KeyEvent.KEYCODE_STAR);
+                return super.onKeyUp(keyCode, event);
+            case KeyEvent.KEYCODE_POUND:
+                startCallNumber(KeyEvent.KEYCODE_POUND);
+                return super.onKeyUp(keyCode, event);
 
             default:
-                return super.onKeyDown(keyCode, event);
+                return super.onKeyUp(keyCode, event);
         }
 
-        return super.onKeyDown(keyCode, event);
+        return super.onKeyUp(keyCode, event);
     }
+
 
 
     private void initView() {

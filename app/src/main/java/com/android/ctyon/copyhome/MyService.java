@@ -6,7 +6,10 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
+import android.speech.tts.TextToSpeech;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
@@ -17,9 +20,25 @@ import java.util.Calendar;
 
 public class MyService extends IntentService {
     private static final String TAG = "MyService";
-    MediaPlayer mediaPlayer;
+    private MediaPlayer mediaPlayer;
+    private TextToSpeech mTextToSpeech;
+
+    private static final int MSG_PLAY_TIME = 10;
+
+    private Handler mHandler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what){
+                case MSG_PLAY_TIME:
+                    playTime();
+                    break;
+            }
+        }
+    };
+
     public MyService() {
         super("MyService");
+
     }
 
 
@@ -28,10 +47,22 @@ public class MyService extends IntentService {
         Log.d(TAG, "onHandleIntent: ");
         mediaPlayer = MediaPlayer.create(this, R.raw.speechtime);
         mediaPlayer.start();
+        mHandler.sendEmptyMessageDelayed(MSG_PLAY_TIME, 4 * 1000);
+
+
         if(SpHelper.getBoolean(this, "speech_time", false)){
             Intent intent_alarm = new Intent("com.copyhome.alarm");
             sendBroadcast(intent_alarm);
         }
+
+
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                Log.d(TAG, "onCompletion");
+            }
+        });
+
     }
 
 
@@ -42,6 +73,13 @@ public class MyService extends IntentService {
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.HOUR_OF_DAY, beginTime);
 
+    }
+
+    private void playTime(){
+        mTextToSpeech = MyApplication.getInstance().mTextToSpeech;
+        Calendar c = Calendar.getInstance();
+        String hour = String.valueOf(c.get(Calendar.HOUR_OF_DAY));
+        mTextToSpeech.speak(hour + "点", TextToSpeech.QUEUE_FLUSH, null);
     }
 
     @Override
