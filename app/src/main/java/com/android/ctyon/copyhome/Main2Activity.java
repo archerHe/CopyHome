@@ -20,6 +20,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.ctyon.copyhome.adapter.MainPagerAdapter;
@@ -28,9 +29,12 @@ import com.android.ctyon.copyhome.utils.SpHelper;
 
 import org.w3c.dom.Text;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Main2Activity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
     private static final String TAG = "Main2Activity";
@@ -42,6 +46,9 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
     private Handler                  mHandler;
     private TextView                 tv_title;
     private LinkedList<AppClassName> mActivityClassNameList;
+    private LinearLayout             mLayout;
+    private List<String>                   mTitleList;
+    private int[]                    mMipmaps;
     private int                      mCurrentItem;
     private TextToSpeech             mTextToSpeech;
 
@@ -49,8 +56,16 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+
+
+
+
+
+
         mMainViewPager = findViewById(R.id.viewpager);
         mActivityClassNameList = new LinkedList<>();
         mViewArrayList = new ArrayList<>();
@@ -84,6 +99,10 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
             }
         };
         mTextToSpeech = MyApplication.getInstance().mTextToSpeech;
+
+
+        mLayout = findViewById(R.id.main2_layout);
+        tv_title = findViewById(R.id.title_tv);
 
         //mHandler.postDelayed(mRunnable, 3000);
     /*
@@ -137,11 +156,21 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
     public void onPageScrollStateChanged(int i) {
         switch (i) {
             case ViewPager.SCROLL_STATE_IDLE:
+                Log.d(TAG, "current item : " + mCurrentItem);
                 if (mCurrentItem == 0) {
                     mMainViewPager.setCurrentItem(mViewArrayList.size() - 2, false);
+                    mLayout.setBackgroundResource(mMipmaps[mViewArrayList.size() - 2]);
+                    tv_title.setText(mTitleList.get(mViewArrayList.size() - 2));
+
 
                 } else if (mCurrentItem == mViewArrayList.size() - 1) {
                     mMainViewPager.setCurrentItem(1);
+                    mLayout.setBackgroundResource(mMipmaps[1]);
+                    tv_title.setText(mTitleList.get(1));
+                }else{
+                    mLayout.setBackgroundResource(mMipmaps[mCurrentItem]);
+                    tv_title.setText(mTitleList.get(mCurrentItem));
+                    //Log.d(TAG, "title: " + mTitleList[mCurrentItem]);
                 }
 
                 if(isSpeechMenuOn){
@@ -239,6 +268,33 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
     }
 
     private void initTitleList() {
+
+        mMipmaps = new int[11];
+        mMipmaps[0] = R.mipmap.others;
+        mMipmaps[1] = R.mipmap.contact;
+        mMipmaps[2] = R.mipmap.call;
+        mMipmaps[3] = R.mipmap.sms;
+        mMipmaps[4] = R.mipmap.media;
+        mMipmaps[5] = R.mipmap.tools;
+        mMipmaps[6] = R.mipmap.settings;
+        mMipmaps[7] = R.mipmap.weixin;
+        mMipmaps[8] = R.mipmap.yzf;
+        mMipmaps[9] = R.mipmap.others;
+        mMipmaps[10] = R.mipmap.contact;
+
+        mTitleList = new LinkedList<>();
+        mTitleList.add("其他应用");
+        mTitleList.add("通讯录");
+        mTitleList.add("通话管理");
+        mTitleList.add("短信");
+        mTitleList.add("多媒体");
+        mTitleList.add("工具箱");
+        mTitleList.add("设置");
+        mTitleList.add("微信");
+        mTitleList.add("翼支付");
+        mTitleList.add("其他应用");
+        mTitleList.add("通讯录");
+
         titleList = new LinkedList<String>();
         titleList.add("通讯录");
         titleList.add("通话管理");
@@ -255,6 +311,8 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
         TextView tvBack = v.findViewById(R.id.back_tv);
         tvOK.setTextColor(Color.rgb(255, 255, 255));
         tvBack.setTextColor(Color.rgb(255, 255, 255));
+
+
     }
 
     private void startActivityFromPosition(int p) {

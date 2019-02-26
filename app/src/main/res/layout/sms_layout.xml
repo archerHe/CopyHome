@@ -4,27 +4,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-    <TextView
-        android:id="@+id/disname_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:singleLine="true"
-        android:textColor="@android:color/white"
-        android:textSize="32sp"
-        android:text="@string/sms"/>
 
 
-    <ImageView
-        android:id="@+id/icon_iv"
-        android:layout_width="220.0dip"
-        android:layout_height="240.0dip"
-        android:layout_below="@id/disname_tv"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/main_item_icon_sms2" />
 
 
 </RelativeLayout>
