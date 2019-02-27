@@ -30,7 +30,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".ui.MainLauncher"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/DefaultWallpaper">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
