@@ -5,6 +5,7 @@ import android.app.IntentService;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.IBinder;
@@ -45,34 +46,29 @@ public class MyService extends IntentService {
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
         Log.d(TAG, "onHandleIntent: ");
-        mediaPlayer = MediaPlayer.create(this, R.raw.speechtime);
-        mediaPlayer.start();
-        mHandler.sendEmptyMessageDelayed(MSG_PLAY_TIME, 4 * 1000);
-
+        if(isVibrateMode()){
+            Log.d(TAG, "isVibrate mode");
+            return;
+        }else{
+            mediaPlayer = MediaPlayer.create(this, R.raw.speechtime);
+            mediaPlayer.start();
+            mHandler.sendEmptyMessageDelayed(MSG_PLAY_TIME, 4 * 1000);
+        }
 
         if(SpHelper.getBoolean(this, "speech_time", false)){
             Intent intent_alarm = new Intent("com.copyhome.alarm");
             sendBroadcast(intent_alarm);
         }
-
-
-        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mediaPlayer) {
-                Log.d(TAG, "onCompletion");
-            }
-        });
-
     }
 
 
-    private void alarm(){
-        AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-        int beginTime = Integer.valueOf(SpHelper.getString(this, "et_time_settings_begin", "8"));
-        int endTime = Integer.valueOf(SpHelper.getString(this, "et_time_settings_end", "18"));
-        Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.HOUR_OF_DAY, beginTime);
-
+    private boolean isVibrateMode(){
+        AudioManager mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        if(mAudioManager.getRingerMode() == AudioManager.RINGER_MODE_NORMAL){
+            return false;
+        }else{
+            return true;
+        }
     }
 
     private void playTime(){
