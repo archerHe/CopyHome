@@ -78,7 +78,12 @@ public class MyService extends IntentService {
     private void playTime(){
         mTextToSpeech = MyApplication.getInstance().mTextToSpeech;
         Calendar c = Calendar.getInstance();
-        String hour = String.valueOf(c.get(Calendar.HOUR_OF_DAY));
+        String hour;
+        if(c.get(Calendar.HOUR_OF_DAY) >= 12 && c.get(Calendar.HOUR_OF_DAY) <= 24){
+            hour = "下午" + String.valueOf(c.get(Calendar.HOUR_OF_DAY));
+        }else{
+            hour = "上午" + String.valueOf(c.get(Calendar.HOUR_OF_DAY));
+        }
         mTextToSpeech.speak(hour + "点", TextToSpeech.QUEUE_FLUSH, null);
     }
 
