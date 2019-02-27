@@ -212,6 +212,7 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
             case KeyEvent.KEYCODE_ENTER:
                 startActivityFromPosition(mCurrentItem);
                 break;
+                /*
             case KeyEvent.KEYCODE_BACK:
                 Intent intent = new Intent();
                 ComponentName componentName = new ComponentName("com.android.ctyon.copyhome",
@@ -220,6 +221,7 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
                 startActivity(intent);
                 finish();
                 break;
+                */
             case KeyEvent.KEYCODE_0:
             case KeyEvent.KEYCODE_1:
             case KeyEvent.KEYCODE_2:
