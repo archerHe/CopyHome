@@ -10,7 +10,6 @@
 
         <TextClock
             android:id="@+id/time_tv"
-            style="@style/widget_big_thin"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

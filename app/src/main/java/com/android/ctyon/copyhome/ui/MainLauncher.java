@@ -1,5 +1,6 @@
 package com.android.ctyon.copyhome.ui;
 
+import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -24,7 +25,7 @@ import com.android.ctyon.copyhome.utils.SpHelper;
 import java.util.Calendar;
 import java.util.LinkedList;
 
-public class MainLauncher extends AppCompatActivity {
+public class MainLauncher extends Activity {
 
     private TextView                 tvLunar;
     private TextView                 tvCarrierInfo;
