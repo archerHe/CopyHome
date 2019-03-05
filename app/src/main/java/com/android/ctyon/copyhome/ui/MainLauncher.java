@@ -221,7 +221,13 @@ public class MainLauncher extends Activity {
             case KeyEvent.KEYCODE_POUND:
                 startCallNumber(KeyEvent.KEYCODE_POUND);
                 return super.onKeyUp(keyCode, event);
-
+            case KeyEvent.KEYCODE_CALL:
+                Intent intent1 = new Intent();
+                ComponentName componentName = new ComponentName("com.ctyon.ctyonlauncher", "com.ctyon" +
+                        ".ctyonlauncher.ui.activity.dialer.CallMainActivity");
+                intent1.setComponent(componentName);
+                startActivity(intent1);
+                break;
             default:
                 return super.onKeyUp(keyCode, event);
         }
@@ -295,7 +301,15 @@ public class MainLauncher extends Activity {
 
     private void updateSimCarrier(){
         TelephonyManager telephonyManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
-        int simStatus = telephonyManager.getSimState();
+        int simStatus = 0;
+        try{
+            simStatus = telephonyManager.getSimState();
+        }catch (NullPointerException e){
+
+            tvCarrierInfo.setVisibility(View.INVISIBLE);
+            return;
+        }
+
         switch(simStatus){
             case TelephonyManager.SIM_STATE_ABSENT:
                 tvCarrierInfo.setVisibility(View.VISIBLE);
