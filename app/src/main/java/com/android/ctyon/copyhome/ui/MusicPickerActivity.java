@@ -1,13 +1,19 @@
 package com.android.ctyon.copyhome.ui;
 
 import android.app.Dialog;
+import android.content.ComponentName;
+import android.content.Intent;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -23,16 +29,20 @@ import java.util.concurrent.Executors;
 
 import  static com.android.ctyon.copyhome.utils.FilePathUtil.scanFileList;
 
-public class MusicPickerActivity extends AppCompatActivity {
+public class MusicPickerActivity extends AppCompatActivity implements View.OnClickListener{
     private static final String TAG = "MusicPickerActivity";
     private TextView     tv_title;
     private ListView     mListView;
+    private Button      mButton_ok;
+    private Button      mButton_cancel;
     private ArrayAdapter<String> mListviewAdapter;
     List<String> uniqueNameList;
     List<String> uniquePathList;
 
     private Dialog          dialog;
     private ExecutorService executorService;
+    private String mSelectedItemPath;
+
 
     private static final int MSG_UPDATE_LISTVIEW = 10;
 
@@ -51,11 +61,43 @@ public class MusicPickerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tools_list_layout);
+        setContentView(R.layout.music_picker_layout);
         tv_title = findViewById(R.id.tools_title_tv);
         tv_title.setText("选择音乐曲目");
+        mButton_ok = findViewById(R.id.btn_ok);
+        mButton_ok.setOnClickListener(this);
+        mButton_cancel = findViewById(R.id.btn_cancel);
+        mButton_cancel.setOnClickListener(this);
+
         mListView = findViewById(R.id.tools_list_view);
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Log.d(TAG, "onItemClick: " + uniquePathList.get(i));
+                mSelectedItemPath = uniquePathList.get(i);
+            }
+        });
         loadMusicList();
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.btn_ok:
+                if(TextUtils.isEmpty(mSelectedItemPath)){
+                    finish();
+                    return;
+                }
+                Intent intent = new Intent();
+                intent.putExtra("result", mSelectedItemPath);
+                MusicPickerActivity.this.setResult(RESULT_OK, intent);
+                finish();
+                break;
+            case R.id.btn_cancel:
+                finish();
+                break;
+        }
     }
 
     @Override
@@ -65,6 +107,7 @@ public class MusicPickerActivity extends AppCompatActivity {
     }
 
     private  void updateListView(){
+        mListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         mListView.setAdapter(mListviewAdapter);
     }
 
@@ -134,4 +177,6 @@ public class MusicPickerActivity extends AppCompatActivity {
         }
         Log.d(TAG, "onDestroy: ");
     }
+
+
 }
