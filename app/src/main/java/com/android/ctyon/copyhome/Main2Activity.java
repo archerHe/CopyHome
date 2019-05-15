@@ -62,16 +62,13 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
 
 
 
-
-
-
-
         mMainViewPager = findViewById(R.id.viewpager);
         mActivityClassNameList = new LinkedList<>();
         mViewArrayList = new ArrayList<>();
         initActivityClassNameList();
         initTitleList();
         LayoutInflater layoutInflater = getLayoutInflater();
+        /*
         mViewArrayList.add(layoutInflater.inflate(R.layout.others_layout, null, false));
         mViewArrayList.add(layoutInflater.inflate(R.layout.contact_layout, null, false));
         mViewArrayList.add(layoutInflater.inflate(R.layout.call_layout, null, false));
@@ -83,6 +80,10 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
         mViewArrayList.add(layoutInflater.inflate(R.layout.yzf_layout, null, false));
         mViewArrayList.add(layoutInflater.inflate(R.layout.others_layout, null, false));
         mViewArrayList.add(layoutInflater.inflate(R.layout.contact_layout, null, false));
+        */
+        for (int i = 0; i < 12; i++) {
+            mViewArrayList.add(layoutInflater.inflate(R.layout.others_layout, null, false));
+        }
         mMainPagerAdapter = new MainPagerAdapter(mViewArrayList);
         mMainViewPager.setAdapter(mMainPagerAdapter);
         mMainViewPager.addOnPageChangeListener(this);
@@ -261,6 +262,8 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
                 ".android.ctyon.copyhome.ui.ToolsActivity"));
         mActivityClassNameList.add(new AppClassName("settings", "com.android.settings", "com" +
                 ".android.settings.Settings"));
+        mActivityClassNameList.add(new AppClassName("ai", "com.android.ctyon.copyhome", "com" +
+                ".android.ctyon.copyhome.ui.VoiceActivity"));
         mActivityClassNameList.add(new AppClassName("wechat", "com.tencent.mm", "com.tencent.mm" +
                 ".ui.LauncherUI"));
         mActivityClassNameList.add(new AppClassName("yzf", "com.chinatelecom.bestpayclient", "com" +
@@ -271,7 +274,7 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
 
     private void initTitleList() {
 
-        mMipmaps = new int[11];
+        mMipmaps = new int[12];
         mMipmaps[0] = R.mipmap.others;
         mMipmaps[1] = R.mipmap.contact;
         mMipmaps[2] = R.mipmap.call;
@@ -279,10 +282,12 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
         mMipmaps[4] = R.mipmap.media;
         mMipmaps[5] = R.mipmap.tools;
         mMipmaps[6] = R.mipmap.settings;
-        mMipmaps[7] = R.mipmap.weixin;
-        mMipmaps[8] = R.mipmap.yzf;
-        mMipmaps[9] = R.mipmap.others;
-        mMipmaps[10] = R.mipmap.contact;
+        mMipmaps[7] = R.mipmap.item_ai;
+        mMipmaps[8] = R.mipmap.weixin;
+        mMipmaps[9] = R.mipmap.yzf;
+        mMipmaps[10] = R.mipmap.others;
+        mMipmaps[11] = R.mipmap.contact;
+
 
         mTitleList = new LinkedList<>();
         mTitleList.add("其他应用");
@@ -292,6 +297,7 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
         mTitleList.add("多媒体");
         mTitleList.add("工具箱");
         mTitleList.add("设置");
+        mTitleList.add("语音助手");
         mTitleList.add("微信");
         mTitleList.add("翼支付");
         mTitleList.add("其他应用");
@@ -304,6 +310,7 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
         titleList.add("多媒体");
         titleList.add("工具箱");
         titleList.add("设置");
+        titleList.add("语音助手");
         titleList.add("微信");
         titleList.add("翼支付");
         titleList.add("其他应用");

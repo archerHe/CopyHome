@@ -36,5 +36,7 @@
     <string name="quick_start_select_title">QuickStart select</string>
     <string name="voice_menu">Browser</string>
     <string name="voice_call">Browser</string>
+    <string name="touch_to_speak">press Enter key to say</string>
+    <string name="alertdialog_exit_title">Exit?</string>
 
 </resources>

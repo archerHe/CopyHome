@@ -1,10 +1,13 @@
 package com.android.ctyon.copyhome;
 
 import android.app.Application;
+import android.os.Environment;
 import android.provider.Settings;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.widget.Toast;
+
+import com.android.ctyon.copyhome.echocloud.utils.MediaManager;
 
 import java.util.Locale;
 
@@ -13,6 +16,8 @@ public class MyApplication extends Application {
     private static       MyApplication app;
     private static final String        TAG = "MyApplication";
 
+    private MediaManager recordManager;
+
     public static MyApplication getInstance() {
         return app;
     }
@@ -20,8 +25,14 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Log.d(TAG, "onCreate: ");
         app = this;
+        recordManager = MediaManager.getInstance(Environment.getExternalStorageDirectory());
         initSpeak();
+    }
+
+    public MediaManager getRecordManager() {
+        return recordManager;
     }
 
     private void initSpeak() {

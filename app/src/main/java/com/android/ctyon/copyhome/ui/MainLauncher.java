@@ -43,7 +43,7 @@ public class MainLauncher extends Activity {
     private TextView                 tvCarrierInfo;
     private LinkedList<AppClassName> mAppInfoList;
 
-    private String[]    permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
+    private String[]    permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE, Manifest.permission.RECORD_AUDIO};
     private AlertDialog dialog;
 
 
@@ -59,13 +59,24 @@ public class MainLauncher extends Activity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 
             // 检查该权限是否已经获取
-            int i = ContextCompat.checkSelfPermission(this, permissions[0]);
+            //int i = ContextCompat.checkSelfPermission(this, permissions[0]);
             // 权限是否已经 授权 GRANTED---授权  DINIED---拒绝
+            /*
             if (i != PackageManager.PERMISSION_GRANTED) {
                 // 如果没有授予该权限，就去提示用户请求
                 //showDialogTipUserRequestPermission();
                 startRequestPermission();
             }
+            */
+            for (int j = 0; j < permissions.length; j++) {
+                int i = ContextCompat.checkSelfPermission(this, permissions[j]);
+                if (i != PackageManager.PERMISSION_GRANTED) {
+                    // 如果没有授予该权限，就去提示用户请求
+                    //showDialogTipUserRequestPermission();
+                    startRequestPermission();
+                }
+            }
+
         }
     }
 
@@ -101,6 +112,11 @@ public class MainLauncher extends Activity {
 
         if (requestCode == 321) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+
+                // 有时会报异常java.lang.ArrayIndexOutOfBoundsException: length=0; index=0
+                if (grantResults.length == 0) {
+                    return;
+                }
                 if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
                     // 判断用户是否 点击了不再提醒。(检测该权限是否还可以申请)
                     boolean b = shouldShowRequestPermissionRationale(permissions[0]);

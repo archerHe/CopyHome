@@ -36,4 +36,6 @@
     <string name="quick_start_select_title">导航键启动设置</string>
     <string name="voice_menu">语音播报菜单</string>
     <string name="voice_call">语音按键拨号</string>
+    <string name="touch_to_speak">按下确认键说话</string>
+    <string name="alertdialog_exit_title">确定要退出吗？</string>
 </resources>
