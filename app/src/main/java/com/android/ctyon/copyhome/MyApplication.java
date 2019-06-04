@@ -8,6 +8,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.android.ctyon.copyhome.echocloud.utils.MediaManager;
+import com.android.ctyon.copyhome.utils.CrashHandler;
 
 import java.util.Locale;
 
@@ -29,6 +30,7 @@ public class MyApplication extends Application {
         app = this;
         recordManager = MediaManager.getInstance(Environment.getExternalStorageDirectory());
         initSpeak();
+        CrashHandler.getCrashHandler().init(this);
     }
 
     public MediaManager getRecordManager() {
