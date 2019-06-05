@@ -111,10 +111,10 @@ public class QuickStartFragment extends PreferenceFragment implements Preference
         mData.add(new AppClassName("客服中心", "com.yarin.android.FileManager", "com.ctyon.FileManager.FirstAct"));
         mData.add(new AppClassName("日历", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui.activity.calendar.CalendarActivity"));
         mData.add(new AppClassName("FM电台", "com.android.fmradio", "com.android.fmradio.FmMainActivity"));
-        mData.add(new AppClassName("SoS紧急呼叫", "com.yarin.android.FileManager", "com.ctyon.FileManager.FirstAct"));
+        mData.add(new AppClassName("SoS紧急呼叫", "com.android.settings", "com.android.settings.SoSSettings"));
         mData.add(new AppClassName("录音机", "com.android.soundrecorder", "com.android.soundrecorder.SoundRecorder"));
         mData.add(new AppClassName("文件管理", "com.yarin.android.FileManager", "com.ctyon.FileManager.FirstAct"));
-        mData.add(new AppClassName("亲情号码", "com.yarin.android.FileManager", "com.ctyon.FileManager.FirstAct"));
+        //mData.add(new AppClassName("亲情号码", "com.yarin.android.FileManager", "com.ctyon.FileManager.FirstAct"));
         mData.add(new AppClassName("计算器", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui" +
                 ".activity.caculator.SimpleCalculatorActivity"));
         mData.add(new AppClassName("短信", "com.ctyon.ctyonlauncher", "com.ctyon" +

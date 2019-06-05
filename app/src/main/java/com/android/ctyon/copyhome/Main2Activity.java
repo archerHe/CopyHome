@@ -22,6 +22,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.ctyon.copyhome.adapter.MainPagerAdapter;
 import com.android.ctyon.copyhome.ui.MainViewPager;
@@ -68,19 +69,7 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
         initActivityClassNameList();
         initTitleList();
         LayoutInflater layoutInflater = getLayoutInflater();
-        /*
-        mViewArrayList.add(layoutInflater.inflate(R.layout.others_layout, null, false));
-        mViewArrayList.add(layoutInflater.inflate(R.layout.contact_layout, null, false));
-        mViewArrayList.add(layoutInflater.inflate(R.layout.call_layout, null, false));
-        mViewArrayList.add(layoutInflater.inflate(R.layout.sms_layout, null, false));
-        mViewArrayList.add(layoutInflater.inflate(R.layout.media_layout, null, false));
-        mViewArrayList.add(layoutInflater.inflate(R.layout.tools_layout, null, false));
-        mViewArrayList.add(layoutInflater.inflate(R.layout.setting_layout, null, false));
-        mViewArrayList.add(layoutInflater.inflate(R.layout.wx_layout, null, false));
-        mViewArrayList.add(layoutInflater.inflate(R.layout.yzf_layout, null, false));
-        mViewArrayList.add(layoutInflater.inflate(R.layout.others_layout, null, false));
-        mViewArrayList.add(layoutInflater.inflate(R.layout.contact_layout, null, false));
-        */
+
         for (int i = 0; i < 12; i++) {
             mViewArrayList.add(layoutInflater.inflate(R.layout.others_layout, null, false));
         }
@@ -332,18 +321,20 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
         } else if (mViewArrayList.size() - 1 == p) {
             p = 1;
         }
-        //for(int i = 0; i < mActivityClassNameList.size(); i++){
+
         Log.d(TAG, "p: " + p + " packagename: " + mActivityClassNameList.get(p - 1)
                 .getPackageName() + "class name: " + mActivityClassNameList.get(p - 1)
                 .getClassName());
-        //}
-        //Log.d(TAG, "p: " + p + " packagename: " + mActivityClassNameList.get(p ).getPackageName
-        // () + "class name: " + mActivityClassNameList.get(p ).getClassName());
-        Intent intent = new Intent();
-        ComponentName componentName = new ComponentName(mActivityClassNameList.get(p - 1)
-                .getPackageName(), mActivityClassNameList.get(p - 1).getClassName());
-        intent.setComponent(componentName);
-        startActivity(intent);
+        try {
+            Intent intent = new Intent();
+            ComponentName componentName = new ComponentName(mActivityClassNameList.get(p - 1)
+                    .getPackageName(), mActivityClassNameList.get(p - 1).getClassName());
+            intent.setComponent(componentName);
+            startActivity(intent);
+        }catch (Exception e){
+            Toast.makeText(this, "未安装...",Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     private void startCallNumber(int num) {

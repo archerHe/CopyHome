@@ -260,8 +260,8 @@ public class MainLauncher extends Activity {
         TextView tv_contect = v.findViewById(R.id.back_tv);
         TextView tv_menu = v.findViewById(R.id.ok_tv);
         tv_contect.setText(R.string.main_contact);
-        //tv_contect.setTextColor(Color.rgb(0, 0, 0));
-        //tv_menu.setTextColor(Color.rgb(0, 0, 0));
+        tv_contect.setTextColor(Color.rgb(0, 0, 0));
+        tv_menu.setTextColor(Color.rgb(0, 0, 0));
         tv_menu.setText(R.string.main_menu);
         updateSimCarrier();
     }
@@ -282,12 +282,13 @@ public class MainLauncher extends Activity {
         mAppInfoList.add(new AppClassName("相机", "org.codeaurora.snapcam", "com.android.camera" +
                 ".CameraLauncher"));
         mAppInfoList.add(new AppClassName("客服中心", "com.yarin.android.FileManager", "com.ctyon.FileManager.FirstAct"));
-        mAppInfoList.add(new AppClassName("日历", "com.calendar2345", "com.calendar2345.activity.CalendarMainActivity"));
+        mAppInfoList.add(new AppClassName("日历", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui" +
+                ".activity.calendar.CalendarActivity"));
         mAppInfoList.add(new AppClassName("FM电台", "com.android.fmradio", "com.android.fmradio.FmMainActivity"));
-        mAppInfoList.add(new AppClassName("SoS紧急呼叫", "com.yarin.android.FileManager", "com.ctyon.FileManager.FirstAct"));
+        mAppInfoList.add(new AppClassName("SoS紧急呼叫", "com.android.settings", "com.android.settings.SoSSettings"));
         mAppInfoList.add(new AppClassName("录音机", "com.android.soundrecorder", "com.android.soundrecorder.SoundRecorder"));
         mAppInfoList.add(new AppClassName("文件管理", "com.yarin.android.FileManager", "com.ctyon.FileManager.FirstAct"));
-        mAppInfoList.add(new AppClassName("亲情号码", "com.yarin.android.FileManager", "com.ctyon.FileManager.FirstAct"));
+        //mAppInfoList.add(new AppClassName("亲情号码", "com.yarin.android.FileManager", "com.ctyon.FileManager.FirstAct"));
         mAppInfoList.add(new AppClassName("计算器", "com.ctyon.ctyonlauncher", "com.ctyon.ctyonlauncher.ui" +
                 ".activity.caculator.SimpleCalculatorActivity"));
         mAppInfoList.add(new AppClassName("短信", "com.ctyon.ctyonlauncher", "com.ctyon" +
@@ -303,7 +304,12 @@ public class MainLauncher extends Activity {
         ComponentName componentName = new ComponentName(mAppInfoList.get(appIndex).getPackageName
                 (), mAppInfoList.get(appIndex).getClassName());
         intent.setComponent(componentName);
-        startActivity(intent);
+        try{
+            startActivity(intent);
+        }catch (Exception e){
+            Toast.makeText(this, "未安装...",Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     private void startCallNumber(int num) {
