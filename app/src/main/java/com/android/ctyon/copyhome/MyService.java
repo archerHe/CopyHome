@@ -11,7 +11,6 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.speech.tts.TextToSpeech;
-import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.android.ctyon.copyhome.R;
@@ -44,7 +43,7 @@ public class MyService extends IntentService {
 
 
     @Override
-    protected void onHandleIntent(@Nullable Intent intent) {
+    protected void onHandleIntent( Intent intent) {
         Log.d(TAG, "onHandleIntent: ");
         if(isVibrateMode()){
             Log.d(TAG, "isVibrate mode");

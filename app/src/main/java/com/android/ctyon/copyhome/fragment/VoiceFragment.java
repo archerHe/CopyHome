@@ -130,7 +130,10 @@ public class VoiceFragment extends Fragment  implements MainView {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        presenter.stopVoice();
+        if (presenter != null) {
+            presenter.stopVoice();
+        }
+
     }
 
     /**

@@ -214,7 +214,7 @@ public class MainLauncher extends Activity {
                 quickStart("preference_down", 7);
                 return super.onKeyDown(keyCode, event);
             case KeyEvent.KEYCODE_DPAD_LEFT:
-                quickStart("preference_left", 16);
+                quickStart("preference_left", 8);
                 return super.onKeyDown(keyCode, event);
             case KeyEvent.KEYCODE_DPAD_RIGHT:
                 quickStart("preference_right", 11);
@@ -254,11 +254,11 @@ public class MainLauncher extends Activity {
 
 
     private void initView() {
-        tvLunar = findViewById(R.id.lunar_tv);
-        tvCarrierInfo = findViewById(R.id.carrierInfo_tv);
+        tvLunar = (TextView) findViewById(R.id.lunar_tv);
+        tvCarrierInfo = (TextView) findViewById(R.id.carrierInfo_tv);
         View v = findViewById(R.id.main_bottom_layout);
-        TextView tv_contect = v.findViewById(R.id.back_tv);
-        TextView tv_menu = v.findViewById(R.id.ok_tv);
+        TextView tv_contect = (TextView) v.findViewById(R.id.back_tv);
+        TextView tv_menu = (TextView) v.findViewById(R.id.ok_tv);
         tv_contect.setText(R.string.main_contact);
         tv_contect.setTextColor(Color.rgb(0, 0, 0));
         tv_menu.setTextColor(Color.rgb(0, 0, 0));

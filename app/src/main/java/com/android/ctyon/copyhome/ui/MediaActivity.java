@@ -32,7 +32,7 @@ public class MediaActivity extends AppCompatActivity {
 
         mContext = MediaActivity.this;
         initAdapterData();
-        mListView = findViewById(R.id.media_list_view);
+        mListView = (ListView) findViewById(R.id.media_list_view);
         mListviewAdapter = new ListviewAdapter((LinkedList<AppClassName>)mData, mContext);
         mListView.setAdapter(mListviewAdapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

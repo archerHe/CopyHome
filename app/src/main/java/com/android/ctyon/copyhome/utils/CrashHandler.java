@@ -3,7 +3,6 @@ package com.android.ctyon.copyhome.utils;
 import android.content.Context;
 import android.os.Environment;
 import android.os.Process;
-import android.support.annotation.NonNull;
 import android.util.Log;
 
 import java.io.BufferedWriter;
@@ -49,7 +48,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    private void recordException(@NonNull Throwable e){
+    private void recordException( Throwable e){
         String time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
         File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + time + logFileName);
         Log.d(TAG, "exceptionFile: " + Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + time + logFileName);

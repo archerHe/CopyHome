@@ -92,7 +92,7 @@ public class QuickStartFragment extends PreferenceFragment implements Preference
         */
         findPreference("preference_up").setSummary(mData.get(SpHelper.getInt(this.getActivity(), "preference_up", 5)).getName());
         findPreference("preference_down").setSummary(mData.get(SpHelper.getInt(this.getActivity(), "preference_down", 7)).getName());
-        findPreference("preference_left").setSummary(mData.get(SpHelper.getInt(this.getActivity(), "preference_left", 11)).getName());
+        findPreference("preference_left").setSummary(mData.get(SpHelper.getInt(this.getActivity(), "preference_left", 8)).getName());
         findPreference("preference_right").setSummary(mData.get(SpHelper.getInt(this.getActivity(), "preference_right", 11)).getName());
 
     }

@@ -11,16 +11,18 @@ import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
 import android.speech.tts.TextToSpeech;
-import android.support.v4.view.PagerAdapter;
+import android.support.v4.*;
+
+import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,7 +49,7 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
     private Handler                  mHandler;
     private TextView                 tv_title;
     private LinkedList<AppClassName> mActivityClassNameList;
-    private LinearLayout             mLayout;
+    private RelativeLayout             mLayout;
     private List<String>                   mTitleList;
     private int[]                    mMipmaps;
     private int                      mCurrentItem;
@@ -63,7 +65,7 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
 
 
 
-        mMainViewPager = findViewById(R.id.viewpager);
+        mMainViewPager = (MainViewPager)findViewById(R.id.viewpager);
         mActivityClassNameList = new LinkedList<>();
         mViewArrayList = new ArrayList<>();
         initActivityClassNameList();
@@ -91,8 +93,8 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
         mTextToSpeech = MyApplication.getInstance().mTextToSpeech;
 
 
-        mLayout = findViewById(R.id.main2_layout);
-        tv_title = findViewById(R.id.title_tv);
+        mLayout = (RelativeLayout) findViewById(R.id.main2_layout);
+        tv_title = (TextView) findViewById(R.id.title_tv);
 
         //mHandler.postDelayed(mRunnable, 3000);
     /*
@@ -305,8 +307,8 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
         titleList.add("其他应用");
 
         View v = (View) findViewById(R.id.main2_bottom_layout);
-        TextView tvOK = v.findViewById(R.id.ok_tv);
-        TextView tvBack = v.findViewById(R.id.back_tv);
+        TextView tvOK = (TextView) v.findViewById(R.id.ok_tv);
+        TextView tvBack = (TextView) v.findViewById(R.id.back_tv);
         tvOK.setTextColor(Color.rgb(255, 255, 255));
         tvBack.setTextColor(Color.rgb(255, 255, 255));
 

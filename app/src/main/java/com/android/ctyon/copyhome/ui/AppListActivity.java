@@ -32,7 +32,7 @@ public class AppListActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: pref key: " + mPrefKey);
         initAdapterData();
         mContext = AppListActivity.this;
-        mListView = findViewById(R.id.applist_list_view);
+        mListView = (ListView) findViewById(R.id.applist_list_view);
         mListviewAdapter = new ListviewAdapter(mData, mContext);
         mListView.setAdapter(mListviewAdapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

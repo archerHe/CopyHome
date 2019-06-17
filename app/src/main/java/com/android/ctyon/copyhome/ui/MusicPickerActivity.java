@@ -62,14 +62,14 @@ public class MusicPickerActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.music_picker_layout);
-        tv_title = findViewById(R.id.tools_title_tv);
+        tv_title = (TextView) findViewById(R.id.tools_title_tv);
         tv_title.setText("选择音乐曲目");
-        mButton_ok = findViewById(R.id.btn_ok);
+        mButton_ok = (Button)findViewById(R.id.btn_ok);
         mButton_ok.setOnClickListener(this);
-        mButton_cancel = findViewById(R.id.btn_cancel);
+        mButton_cancel = (Button) findViewById(R.id.btn_cancel);
         mButton_cancel.setOnClickListener(this);
 
-        mListView = findViewById(R.id.tools_list_view);
+        mListView = (ListView)findViewById(R.id.tools_list_view);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
